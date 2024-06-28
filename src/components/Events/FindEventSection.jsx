@@ -7,11 +7,12 @@ import EventItem from './EventItem';
 
 export default function FindEventSection() {
   const searchElement = useRef();
-  const [searchTerm, setSearchTerm] = useState()
+  const [searchTerm, setSearchTerm] = useState(undefined)
 
-  const { data, isLoading, isError, error} = useQuery({
+  const { data, isError, error, isLoading} = useQuery({
     queryKey: ["events", {search: searchTerm}],
-    queryFn: ({signal}) => fetchEvents({searchTerm, signal})
+    queryFn: ({signal}) => fetchEvents({searchTerm, signal}),
+    enabled: searchTerm !== undefined //booleano onde a Query seá desativada en"ao será enviado caso não tenhamos inserido nenhum termo
   })
 
   function handleSubmit(event) {
