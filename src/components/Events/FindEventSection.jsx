@@ -12,7 +12,7 @@ export default function FindEventSection() {
   const { data, isError, error, isLoading} = useQuery({
     queryKey: ["events", {search: searchTerm}],
     queryFn: ({signal}) => fetchEvents({searchTerm, signal}),
-    enabled: searchTerm !== undefined //booleano onde a Query seá desativada en"ao será enviado caso não tenhamos inserido nenhum termo
+    enabled: searchTerm !== undefined
   })
 
   function handleSubmit(event) {
