@@ -37,7 +37,7 @@ export default function EditEvent() {
     <ErrorBlock title='Falied to load event' message={error.info?.message || 'Failed to load event. Please check your inputs and try again later'}/>
     <div className='form-actions'>
       <Link to="../" className='button'>
-      <Okay></Okay></Link>
+      Okay</Link>
 
     </div>
     </>)
